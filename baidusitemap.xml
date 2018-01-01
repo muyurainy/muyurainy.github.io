@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-01-01T14:59:56.727Z</lastmod>
+    <data>
+        <display>
+        <title>搭建hexo博客</title>
+        <pubTime>2017-03-29T09:41:53.000Z</pubTime>
+        
+        <tag>vps</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="折腾" url="http://muyus.cc/categories/%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/26/vps%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2017-12-31T11:21:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>vps安装配置</title>
+        <pubTime>2017-03-26T09:41:53.000Z</pubTime>
+        
+        <tag>vps</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="折腾" url="http://muyus.cc/categories/%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/11/18/%E3%80%8ADeepWalk_Online%20Learning%20of%20Social%20Representations%E3%80%8B%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-11-18T14:47:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>《DeepWalk ： Online Learning of Social Representations》笔记</title>
+        <pubTime>2017-11-18T14:30:00.000Z</pubTime>
+        
+        <tag>Deep learning</tag>
+         
+        <tag>Network Embedding</tag>
+         
+         
+           
+             
+              <breadCrumb title="Deep Learning" url="http://muyus.cc/categories/Deep-Learning/"/>
+          
+             
+              <breadCrumb title="Network Embedding" url="http://muyus.cc/categories/Deep-Learning/Network-Embedding/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/07/07/%E6%9A%91%E5%81%87%E8%AE%A1%E5%88%92/</loc>
+    <lastmod>2017-07-07T14:30:15.948Z</lastmod>
+    <data>
+        <display>
+        <title>暑假计划</title>
+        <pubTime>2017-07-07T14:30:00.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>看心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://muyus.cc/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/04/06/Linux%E6%9F%A5%E7%9C%8B%E7%BC%96%E7%A0%81%E4%B8%8E%E8%BD%AC%E6%8D%A2%20/</loc>
+    <lastmod>2017-07-07T03:55:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux查看编码与转换</title>
+        <pubTime>2017-04-06T09:41:53.000Z</pubTime>
+        
+        <tag>Linux使用</tag>
+         
+         
+           
+             
+              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/31/%E5%BE%AE%E5%8D%9A%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2017-07-07T03:49:56.631Z</lastmod>
+    <data>
+        <display>
+        <title>微博情感分析</title>
+        <pubTime>2017-03-31T09:41:53.000Z</pubTime>
+        
+        <tag>semantics NLP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://muyus.cc/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="NLP" url="http://muyus.cc/categories/Machine-Learning/NLP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/28/github%20use/</loc>
+    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>github使用</title>
+        <pubTime>2017-03-28T09:41:53.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/25/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEcentos/</loc>
+    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>安装配置centos</title>
+        <pubTime>2017-03-25T09:41:53.000Z</pubTime>
+        
+        <tag>vps</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="折腾" url="http://muyus.cc/categories/%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/29/python%E5%90%84%E7%A7%8D%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>python各种库的安装配置</title>
+        <pubTime>2017-03-29T09:41:53.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Machine Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://muyus.cc/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Python" url="http://muyus.cc/categories/Machine-Learning/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/03/27/markdown%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>markdown语法</title>
+        <pubTime>2017-03-27T09:56:15.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>

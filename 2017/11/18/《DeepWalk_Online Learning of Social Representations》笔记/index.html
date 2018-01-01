@@ -1,0 +1,1352 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="bIlFkOMGdqpUyX1stjUP5Nw-qzityCRjBhi2hUhXfsU" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep learning,Network Embedding," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="前言 紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。    背景知识这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：ht">
+<meta name="keywords" content="Deep learning,Network Embedding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《DeepWalk ： Online Learning of Social Representations》笔记">
+<meta property="og:url" content="http://muyus.cc/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/index.html">
+<meta property="og:site_name" content="暮雨今夕">
+<meta property="og:description" content="前言 紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。    背景知识这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：ht">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_0.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_1.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_2.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_3.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_4.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_5.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_6.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_7.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_8.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_9.png">
+<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_10.png">
+<meta property="og:updated_time" content="2017-11-18T14:47:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《DeepWalk ： Online Learning of Social Representations》笔记">
+<meta name="twitter:description" content="前言 紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。    背景知识这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：ht">
+<meta name="twitter:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/《DeepWalk:Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://muyus.cc/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/"/>
+
+
+
+
+
+  <title>《DeepWalk ： Online Learning of Social Representations》笔记 | 暮雨今夕</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">暮雨今夕</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">muyu's Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://muyus.cc/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="muyu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://tvax2.sinaimg.cn/crop.37.10.574.574.180/c42979e1ly8fe1tb4xa78j20ia0lygs9.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暮雨今夕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">《DeepWalk ： Online Learning of Social Representations》笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T22:30:00+08:00">
+                2017-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/Network-Embedding/" itemprop="url" rel="index">
+                    <span itemprop="name">Network Embedding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/" class="leancloud_visitors" data-flag-title="《DeepWalk ： Online Learning of Social Representations》笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。  </p>
+</blockquote>
+<h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：<a href="http://shomy.top/2017/07/28/word2vec-all/" target="_blank" rel="external">http://shomy.top/2017/07/28/word2vec-all/</a>，这篇博客是一位学长写的，很不错。<br>原文链接：  <a href="http://www.perozzi.net/publications/14_kdd_deepwalk.pdf" target="_blank" rel="external">http://www.perozzi.net/publications/14_kdd_deepwalk.pdf</a><br>github代码链接：<a href="https://github.com/phanein/deepwalk" target="_blank" rel="external">https://github.com/phanein/deepwalk</a><br>作者的slide：<a href="http://www.perozzi.net/publications/14_kdd_deepwalk-slides.pdf" target="_blank" rel="external">http://www.perozzi.net/publications/14_kdd_deepwalk-slides.pdf</a>  </p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>这篇文章的算法很简单，但是这篇文章提出了一种新的处理方法或者说是分支：把复杂网络中的节点表示成为潜在的向量（所谓潜在的向量就是无法直接观测得到的向量，具体的解释见<a href="https://en.wikipedia.org/wiki/Latent_variable" target="_blank" rel="external">https://en.wikipedia.org/wiki/Latent_variable</a>,这种欧式空间的向量可以非常方便的用于机器学习的算法。通俗的讲我认为本文提出deepwalk的动机如下：  </p>
+<ol>
+<li>常规使用邻接矩阵只能表示网络的一种节点和边的信息，无法很好的刻画网络中节点或边的一些特征，而转化为连续向量空间后却可以刻画这种特征  </li>
+<li>邻接矩阵是很稀疏的（O(n^2)级别的差距可以认为是稀疏的），维度很高。所以使用邻接矩阵和矩阵分解那一套很难实现Large-scale，而通过所谓的network embedding 可以把网络压缩成一个低维的稠密的向量，因此可以实现Large-scale，具体见下图。  </li>
+<li>想要使用机器学习的算法，直接用邻接矩阵自然是不可行的，所以不得不寻找一种方法来得到一种潜在的表示。这一点原文说的特别优雅：“Machine learning applications in net  ，works (such as network classification [16, 37], content rec- ommendation [12], anomaly detection [6], and missing link prediction [23]) must be able to deal with this sparsity in order to survive.”  </li>
+</ol>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_0.png" alt="”Network embedding“">  </p>
+<p>所以本文：提出了一种从语言模型中发展过来的方法来学习邻接矩阵的潜在表示。<br>可视化样例：  </p>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_1.png" alt="Karate Graph">  </p>
+<h2 id="PROBLEM-DEFINITION"><a href="#PROBLEM-DEFINITION" class="headerlink" title="PROBLEM DEFINITION"></a>PROBLEM DEFINITION</h2><p>输入：G = (V,E),其中V为点集，E为边集。<br>输出：对于\(G_L=(V,E,X,Y)\)（其中X是特征，Y标签集合），一般的机器学习问题，需要学习一个从X映射到Y的hypothesis。而本文的任务就是学习得到X的表示。  </p>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><h3 id="语言模型与图数据的联系"><a href="#语言模型与图数据的联系" class="headerlink" title="语言模型与图数据的联系"></a>语言模型与图数据的联系</h3><p>a)表示复杂网络（rfree-scale）的度分布，<br>b)表示wiki中单词的分布。</p>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_2.png" alt="Connection: Power laws">  </p>
+<p>由上图可知两者都服从幂律分布，所以作者提出一个cool idea：随机游走产生的序列等价于语言中的句子。虽然这种联系很牵强，因为在自然语言中句子是有顺序和语义存在的，而随机游走彻底消除了这种顺序的关系。  </p>
+<h3 id="deepwalk"><a href="#deepwalk" class="headerlink" title="deepwalk"></a>deepwalk</h3><p>deepwalk算法分为两个部分：randomwalk生成器和word2vec的skipgram模型。</p>
+<ul>
+<li>这里使用的随机游走就是最简单的模型，设<br>\(w_{v_i}\)表示根节点为点\({v_i}\)的一条随机游走，每一步从它的邻居中随机选择一个直到达到了最大长度t（可能会restart）。这样就产生很多条随机游走序列来表示语料库。</li>
+</ul>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_3.png" alt="Alogrithm 1">  </p>
+<ul>
+<li>得到随机游走序列后当做句子直接丢给word2vec训练就可以了，本文使用的模型是skipgram+Hierarchical Softmax，论文中的公式就不在此列举了，因为和word2vec的一毛一样，如果word2vec懂得话就非常简单了。  </li>
+</ul>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_4.png" alt="Alogrithm 2"> </p>
+<p>算法的整体流程如下图所示：</p>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_5.png" alt="DeepWalk"> </p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>从随机游走生成器生成序列之后，就都是word2vec那一套了，word2vec可以实现online，可以使用ASGD，同样也很容易理解可以实现并行执行。  </p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>实验部分这篇论文也非常简单，主要做了两部分：多标签分类和参数敏感性分析。  </p>
+<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><blockquote>
+<p>An overview of the graphs we consider in our experiments<br>is given in Figure 1.  </p>
+<ul>
+<li><strong>BlogCatalog</strong> [39] is a network of social relationships provided by blogger authors. The labels represent the topic categories provided by the authors.</li>
+<li><strong>Flickr</strong> [39] is a network of the contacts between users of the photo sharing website. The labels represent the<br>interest groups of the users such as ‘black and white photos’.  </li>
+<li><strong>YouTube</strong> [40] is a social network between users of the popular video sharing website. The labels here<br>represent groups of viewers that enjoy common video genres  </li>
+</ul>
+</blockquote>
+<h2 id="多标签分类"><a href="#多标签分类" class="headerlink" title="多标签分类"></a>多标签分类</h2><p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_6.png" alt="result 1">   </p>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_7.png" alt="result 1">   </p>
+<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_8.png" alt="result 1">   </p>
+<h2 id="参数敏感性分析"><a href="#参数敏感性分析" class="headerlink" title="参数敏感性分析"></a>参数敏感性分析</h2><h3 id="Effect-of-Dimensionality："><a href="#Effect-of-Dimensionality：" class="headerlink" title="Effect of Dimensionality："></a>Effect of Dimensionality：</h3><p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_9.png" alt="Effect of Dimensionality">    </p>
+<p>从这组参数敏感性分析可以发现latent represent的维数d=128时效果最好，维数过小时欠拟合，维数过高时会过拟合（对节点表示有影响的就那么几维，维度过高会引入很多无关的表达，反而会影响到分类的效果）</p>
+<p>###　Effect of sampling frequency<br><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/《DeepWalk:Online Learning of Social Representations》笔记/deepwalk_10.png" alt="Effect of Dimensionality">    </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章中提到了很多deepwalk的优势，但实际上都是照搬word2vec的，比如说online Learning、并行化、ASGD等等。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>综上所述，从这篇论文中，我学到了两个非常重要的内容：一个是network embedding的思想，可以说是这篇文章开创性的工作。二是所谓的写作的技巧，虽然算法和思想很朴素，但是作者对问题的理解很深刻，所以论文写出来就显得非常优美、高大上，涉及到很多其他方面的知识。完美的把简单的算法包装起来，真的服气。<br>本来打算这几天把DeepWalk实现一下，但是受到清华大学涂存超他们写的<a href="https://github.com/thunlp/OpenNE的启发" target="_blank" rel="external">OpenNE</a>,决定看完Node2vec，然后直接写Node2vec，最后用Node2vec就可以很容易实现Deepwalk了。  </p>
+<h2 id="遗留的问题"><a href="#遗留的问题" class="headerlink" title="遗留的问题"></a>遗留的问题</h2><ul>
+<li>efficient discrete algorithms?  </li>
+<li>cascading errors, which can occur in iterative methods ?    </li>
+<li>输入输出敏感  </li>
+<li>shuffle的作用，加快收敛？  </li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-learning/" rel="tag"># Deep learning</a>
+          
+            <a href="/tags/Network-Embedding/" rel="tag"># Network Embedding</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/07/暑假计划/" rel="next" title="暑假计划">
+                <i class="fa fa-chevron-left"></i> 暑假计划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://tvax2.sinaimg.cn/crop.37.10.574.574.180/c42979e1ly8fe1tb4xa78j20ia0lygs9.jpg"
+               alt="muyu" />
+          <p class="site-author-name" itemprop="name">muyu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/muyurainy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005053291052513" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/muyurainy/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zhenlee.cn/" title="zhenlee" target="_blank">zhenlee</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.shintaku.cc/" title="shintaku" target="_blank">shintaku</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xzjqx.cn/" title="xzjqx" target="_blank">xzjqx</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景知识"><span class="nav-number">2.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">3.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PROBLEM-DEFINITION"><span class="nav-number">4.</span> <span class="nav-text">PROBLEM DEFINITION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">5.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型与图数据的联系"><span class="nav-number">5.1.</span> <span class="nav-text">语言模型与图数据的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deepwalk"><span class="nav-number">5.2.</span> <span class="nav-text">deepwalk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">5.3.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集"><span class="nav-number">6.1.</span> <span class="nav-text">数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多标签分类"><span class="nav-number">7.</span> <span class="nav-text">多标签分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数敏感性分析"><span class="nav-number">8.</span> <span class="nav-text">参数敏感性分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-Dimensionality："><span class="nav-number">8.1.</span> <span class="nav-text">Effect of Dimensionality：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗留的问题"><span class="nav-number">11.</span> <span class="nav-text">遗留的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">muyu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("iOOVAxXXb2txGW5n6InHpVVs-gzGzoHsz", "PjHWQHtJOr2XHSLaXH2askTQ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
