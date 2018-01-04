@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -143,7 +143,7 @@
 
 
 
-  <title>markdown语法 | 暮雨今夕</title>
+  <title>markdown语法 | 暮雨今夕</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -168,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -418,7 +418,7 @@
 <h3 id="3-3-自动链接"><a href="#3-3-自动链接" class="headerlink" title="3.3 自动链接"></a>3.3 自动链接</h3><p>语法说明：<br>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：</p>
 <p>代码：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="string">http:</span><span class="comment">//example.com/&gt;</span></div><div class="line">&lt;address<span class="meta">@example</span>.com&gt;</div></pre></td></tr></table></figure></p>
 <p>显示效果：</p>
-<p><a href="http://example.com/" target="_blank" rel="external">http://example.com/</a><br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x61;&#100;&#x64;&#x72;&#101;&#x73;&#115;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x61;&#100;&#x64;&#x72;&#101;&#x73;&#115;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="http://example.com/" target="_blank" rel="external">http://example.com/</a><br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x61;&#x64;&#100;&#114;&#x65;&#x73;&#115;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#109;">&#x61;&#x64;&#100;&#114;&#x65;&#x73;&#115;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#109;</a></p>
 <h2 id="4-锚点"><a href="#4-锚点" class="headerlink" title="4. 锚点"></a>4. 锚点</h2><p>网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。比如我这里写下一个锚点，点击回到目录，就能跳转到目录。 在目录中点击这一节，就能跳过来。还有下一节的注脚。这些根本上都是用锚点来实现的。</p>
 <p>注意： </p>
 <ol>
@@ -769,7 +769,7 @@ int main(void)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1492,6 +1492,43 @@ int main(void)
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

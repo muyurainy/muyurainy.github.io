@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://muyus.cc/2017/11/18/%E3%80%8ADeepWalk_Online%20Learning%20of%20Social%20Representations%E3%80%8B%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-01-02T11:24:17.714Z</lastmod>
+    <loc>http://muyus.cc/2018/01/04/SDNE%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-01-04T12:32:23.177Z</lastmod>
     <data>
         <display>
-        <title>《DeepWalk：Online Learning of Social Representations》笔记</title>
-        <pubTime>2017-11-18T14:30:00.000Z</pubTime>
+        <title>Structural Deep Network Embedding 笔记</title>
+        <pubTime>2018-01-04T12:32:00.000Z</pubTime>
         
         <tag>Deep learning</tag>
          
@@ -30,7 +30,7 @@
     
   <url>
     <loc>http://muyus.cc/2017/03/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2018-01-02T11:18:10.277Z</lastmod>
+    <lastmod>2018-01-04T12:31:47.291Z</lastmod>
     <data>
         <display>
         <title>搭建hexo博客</title>
@@ -46,6 +46,31 @@
            
              
               <breadCrumb title="折腾" url="http://muyus.cc/categories/%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://muyus.cc/2017/11/18/%E3%80%8ADeepWalk_Online%20Learning%20of%20Social%20Representations%E3%80%8B%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-01-02T11:24:17.714Z</lastmod>
+    <data>
+        <display>
+        <title>《DeepWalk：Online Learning of Social Representations》笔记</title>
+        <pubTime>2017-11-18T14:30:00.000Z</pubTime>
+        
+        <tag>Deep learning</tag>
+         
+        <tag>Network Embedding</tag>
+         
+         
+           
+             
+              <breadCrumb title="Deep Learning" url="http://muyus.cc/categories/Deep-Learning/"/>
+          
+             
+              <breadCrumb title="Network Embedding" url="http://muyus.cc/categories/Deep-Learning/Network-Embedding/"/>
           
         </display>
     </data>
@@ -182,6 +207,26 @@
 
     
   <url>
+    <loc>http://muyus.cc/2017/03/27/markdown%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>markdown语法</title>
+        <pubTime>2017-03-27T09:56:15.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://muyus.cc/2017/03/29/python%E5%90%84%E7%A7%8D%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2017-03-30T09:17:36.000Z</lastmod>
     <data>
@@ -200,26 +245,6 @@
           
              
               <breadCrumb title="Python" url="http://muyus.cc/categories/Machine-Learning/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://muyus.cc/2017/03/27/markdown%E8%AF%AD%E6%B3%95/</loc>
-    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>markdown语法</title>
-        <pubTime>2017-03-27T09:56:15.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-         
-           
-             
-              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
           
         </display>
     </data>

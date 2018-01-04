@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Deep learning,Network Embedding," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="总想着记录些什么">
-<meta property="og:type" content="website">
-<meta property="og:title" content="暮雨今夕">
-<meta property="og:url" content="http://muyus.cc/categories/随笔/index.html">
+<meta name="description" content="前言背景知识论文链接 Laplacian Eigenmaps推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{">
+<meta name="keywords" content="Deep learning,Network Embedding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Structural Deep Network Embedding 笔记">
+<meta property="og:url" content="http://muyus.cc/2018/01/04/SDNE笔记/index.html">
 <meta property="og:site_name" content="暮雨今夕">
-<meta property="og:description" content="总想着记录些什么">
+<meta property="og:description" content="前言背景知识论文链接 Laplacian Eigenmaps推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{">
+<meta property="og:updated_time" content="2018-01-04T12:32:23.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="暮雨今夕">
-<meta name="twitter:description" content="总想着记录些什么">
+<meta name="twitter:title" content="Structural Deep Network Embedding 笔记">
+<meta name="twitter:description" content="前言背景知识论文链接 Laplacian Eigenmaps推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://muyus.cc/categories/随笔/"/>
+  <link rel="canonical" href="http://muyus.cc/2018/01/04/SDNE笔记/"/>
 
 
 
 
 
-  <title>分类: 随笔 | 暮雨今夕</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Structural Deep Network Embedding 笔记 | 暮雨今夕</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -162,7 +164,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,45 +292,204 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2>随笔<small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/07/暑假计划/" itemprop="url">
-              
-                <span itemprop="name">暑假计划</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-07T22:30:00+08:00"
-              content="2017-07-07" >
-          07-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://muyus.cc/2018/01/04/SDNE笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="muyu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://tvax2.sinaimg.cn/crop.37.10.574.574.180/c42979e1ly8fe1tb4xa78j20ia0lygs9.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暮雨今夕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Structural Deep Network Embedding 笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T20:32:00+08:00">
+                2018-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/Network-Embedding/" itemprop="url" rel="index">
+                    <span itemprop="name">Network Embedding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/04/SDNE笔记/" class="leancloud_visitors" data-flag-title="Structural Deep Network Embedding 笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><p><a href="http://211.81.63.130/cache/9/03/www.kdd.org/f7ed7ee5c8adb5e586160f0375f71dd8/rfp0191-wangAemb.pdf" target="_blank" rel="external">论文链接</a></p>
+<h2 id="Laplacian-Eigenmaps"><a href="#Laplacian-Eigenmaps" class="headerlink" title="Laplacian Eigenmaps"></a>Laplacian Eigenmaps</h2><h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><span>$$\begin{gathered}
+\sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij}
+\\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij}
+\\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{ij})y_i^Ty_i+\sum_{j=1}^{n}(\sum_{i=1}^nW_{ij})y_j^Ty_j-2\sum_{i=1}^{n}\sum_{j=1}^{n}y_i^Ty_jW_{ij}
+\\=2\sum_{i=1}^{n}D_{ii}y_i^Ty_i-2\sum_{i=1}^{n}\sum_{j=1}^{n}y_i^Ty_jW_{ij}
+\\=2\sum_{i=1}^{n}(\sqrt{D_{ii}}y_i)^T(\sqrt{D_{ii}}y_i)-2\sum_{i=1}^ny_i^T(\sum_{j=1}^ny_jW{ij})
+\\=2trace(Y^TDY) - 2\sum_{i=1}^ny_i^T(YW)_i
+\\=2trace(Y^TDY)-2trace(Y^TWY)
+\\=2trace[Y^T(D-W)Y]
+\\=2trace(Y^TLY)
+\end{gathered}$$</span><!-- Has MathJax -->
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-learning/" rel="tag"># Deep learning</a>
+          
+            <a href="/tags/Network-Embedding/" rel="tag"># Network Embedding</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/" rel="next" title="《DeepWalk：Online Learning of Social Representations》笔记">
+                <i class="fa fa-chevron-left"></i> 《DeepWalk：Online Learning of Social Representations》笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -336,6 +497,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -355,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://tvax2.sinaimg.cn/crop.37.10.574.574.180/c42979e1ly8fe1tb4xa78j20ia0lygs9.jpg"
@@ -469,6 +643,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景知识"><span class="nav-number">2.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Laplacian-Eigenmaps"><span class="nav-number">2.1.</span> <span class="nav-text">Laplacian Eigenmaps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#推导"><span class="nav-number">2.1.1.</span> <span class="nav-text">推导</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -587,10 +777,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
