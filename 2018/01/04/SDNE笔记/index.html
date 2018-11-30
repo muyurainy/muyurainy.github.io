@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="前言背景知识论文链接 Laplacian Eigenmaps推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{">
+<meta name="description" content="前言背景知识论文链接 Laplacian Eigenmaps参考博客   推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=">
 <meta name="keywords" content="Deep learning,Network Embedding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Structural Deep Network Embedding 笔记">
 <meta property="og:url" content="http://muyus.cc/2018/01/04/SDNE笔记/index.html">
 <meta property="og:site_name" content="暮雨今夕">
-<meta property="og:description" content="前言背景知识论文链接 Laplacian Eigenmaps推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{">
-<meta property="og:updated_time" content="2018-01-04T12:32:23.177Z">
+<meta property="og:description" content="前言背景知识论文链接 Laplacian Eigenmaps参考博客   推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=">
+<meta property="og:updated_time" content="2018-01-05T11:44:15.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Structural Deep Network Embedding 笔记">
-<meta name="twitter:description" content="前言背景知识论文链接 Laplacian Eigenmaps推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{">
+<meta name="twitter:description" content="前言背景知识论文链接 Laplacian Eigenmaps参考博客   推导$$\begin{gathered} \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij} \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij} \\= \sum_{i=1}^{n}(\sum_{j=">
 
 
 
@@ -411,7 +411,8 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><p><a href="http://211.81.63.130/cache/9/03/www.kdd.org/f7ed7ee5c8adb5e586160f0375f71dd8/rfp0191-wangAemb.pdf" target="_blank" rel="external">论文链接</a></p>
-<h2 id="Laplacian-Eigenmaps"><a href="#Laplacian-Eigenmaps" class="headerlink" title="Laplacian Eigenmaps"></a>Laplacian Eigenmaps</h2><h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><span>$$\begin{gathered}
+<h2 id="Laplacian-Eigenmaps"><a href="#Laplacian-Eigenmaps" class="headerlink" title="Laplacian Eigenmaps"></a>Laplacian Eigenmaps</h2><p>参考<a href="http://blog.csdn.net/qrlhl/article/details/78066994" target="_blank" rel="external">博客</a>  </p>
+<h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><span>$$\begin{gathered}
 \sum_{i=1}^{n}\sum_{j=1}^{n}||y_i-y_j||^2W_{ij}
 \\=\sum_{i=1}^{n}\sum_{j=1}^{n}(y_i^Ty_i-2y_i^Ty_j+y_j^Ty_j)W_{ij}
 \\= \sum_{i=1}^{n}(\sum_{j=1}^nW_{ij})y_i^Ty_i+\sum_{j=1}^{n}(\sum_{i=1}^nW_{ij})y_j^Ty_j-2\sum_{i=1}^{n}\sum_{j=1}^{n}y_i^Ty_jW_{ij}
@@ -422,6 +423,13 @@
 \\=2trace[Y^T(D-W)Y]
 \\=2trace(Y^TLY)
 \end{gathered}$$</span><!-- Has MathJax -->
+<h2 id="深度置信网络-Deep-Belief-Network-DBN"><a href="#深度置信网络-Deep-Belief-Network-DBN" class="headerlink" title="深度置信网络 (Deep Belief Network, DBN)"></a>深度置信网络 (Deep Belief Network, DBN)</h2><h3 id="受限玻尔兹曼机-Restricted-Boltzmann-Machines-RBM"><a href="#受限玻尔兹曼机-Restricted-Boltzmann-Machines-RBM" class="headerlink" title="受限玻尔兹曼机 (Restricted Boltzmann Machines, RBM)"></a>受限玻尔兹曼机 (Restricted Boltzmann Machines, RBM)</h3><p>几篇参考资料：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/jhding/p/5687696.html" target="_blank" rel="external">https://www.cnblogs.com/jhding/p/5687696.html</a></li>
+<li><a href="https://github.com/muyurainy/DeepLearningTutorial/blob/master/7_Restricted_Boltzmann_Machine_%E5%8F%97%E9%99%90%E6%B3%A2%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA.md" target="_blank" rel="external">https://github.com/muyurainy/DeepLearningTutorial/blob/master/7_Restricted_Boltzmann<em>Machine</em>%E5%8F%97%E9%99%90%E6%B3%A2%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA.md</a></li>
+<li><a href="http://blog.csdn.net/itplus/article/details/19168937" target="_blank" rel="external">http://blog.csdn.net/itplus/article/details/19168937</a></li>
+</ul>
+
       
     </div>
 
@@ -465,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/" rel="next" title="《DeepWalk：Online Learning of Social Representations》笔记">
-                <i class="fa fa-chevron-left"></i> 《DeepWalk：Online Learning of Social Representations》笔记
+              <a href="/2017/11/18/DeepWalk笔记/" rel="next" title="DeepWalk:Online Learning of Social Representations 笔记">
+                <i class="fa fa-chevron-left"></i> DeepWalk:Online Learning of Social Representations 笔记
               </a>
             
           </div>
@@ -474,6 +482,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/30/http代理服务搭建及应用/" rel="prev" title="vps安装配置">
+                vps安装配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -545,7 +557,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -653,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景知识"><span class="nav-number">2.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Laplacian-Eigenmaps"><span class="nav-number">2.1.</span> <span class="nav-text">Laplacian Eigenmaps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#推导"><span class="nav-number">2.1.1.</span> <span class="nav-text">推导</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景知识"><span class="nav-number">2.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Laplacian-Eigenmaps"><span class="nav-number">2.1.</span> <span class="nav-text">Laplacian Eigenmaps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#推导"><span class="nav-number">2.1.1.</span> <span class="nav-text">推导</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度置信网络-Deep-Belief-Network-DBN"><span class="nav-number">2.2.</span> <span class="nav-text">深度置信网络 (Deep Belief Network, DBN)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#受限玻尔兹曼机-Restricted-Boltzmann-Machines-RBM"><span class="nav-number">2.2.1.</span> <span class="nav-text">受限玻尔兹曼机 (Restricted Boltzmann Machines, RBM)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

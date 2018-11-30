@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Deep learning,Network Embedding," />
+  <meta name="keywords" content="随笔,看心情," />
 
 
 
@@ -95,29 +95,17 @@
 
 
 
-<meta name="description" content="前言 紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。    背景知识这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：ht">
-<meta name="keywords" content="Deep learning,Network Embedding">
+<meta name="description" content="经过了毕业季伤感的别离，生活又回归了平静；不管你怎么变，永远不变的是早上那缕缕晨光和阵阵的鸟鸣声。大学的最后一个暑假无奈只能在学校度过，为了防止再次:-)浪费了这大好的时光，必须要来一波暑期计划了。。。   首先是最重要的内容:提高英语水平。好吧我承认这个计划已经存在好多年了…..但仍然远远不够，随着需要读越来越多的英文论文，英语水平已经成为致命的短板。迫在眉睫的任务。   补充机器学习、深度学">
+<meta name="keywords" content="随笔,看心情">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《DeepWalk：Online Learning of Social Representations》笔记">
-<meta property="og:url" content="http://muyus.cc/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/index.html">
+<meta property="og:title" content="暑假计划">
+<meta property="og:url" content="http://muyus.cc/2017/07/07/啊啊/index.html">
 <meta property="og:site_name" content="暮雨今夕">
-<meta property="og:description" content="前言 紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。    背景知识这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：ht">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_0.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_1.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_2.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_3.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_4.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_5.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_6.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_7.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_8.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_9.png">
-<meta property="og:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_10.png">
-<meta property="og:updated_time" content="2018-01-02T11:24:17.714Z">
+<meta property="og:description" content="经过了毕业季伤感的别离，生活又回归了平静；不管你怎么变，永远不变的是早上那缕缕晨光和阵阵的鸟鸣声。大学的最后一个暑假无奈只能在学校度过，为了防止再次:-)浪费了这大好的时光，必须要来一波暑期计划了。。。   首先是最重要的内容:提高英语水平。好吧我承认这个计划已经存在好多年了…..但仍然远远不够，随着需要读越来越多的英文论文，英语水平已经成为致命的短板。迫在眉睫的任务。   补充机器学习、深度学">
+<meta property="og:updated_time" content="2018-11-30T02:56:03.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《DeepWalk：Online Learning of Social Representations》笔记">
-<meta name="twitter:description" content="前言 紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。    背景知识这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：ht">
-<meta name="twitter:image" content="http://muyus.cc/2017/11/18/《DeepWalk_Online%20Learning%20of%20Social%20Representations》笔记/deepwalk_0.png">
+<meta name="twitter:title" content="暑假计划">
+<meta name="twitter:description" content="经过了毕业季伤感的别离，生活又回归了平静；不管你怎么变，永远不变的是早上那缕缕晨光和阵阵的鸟鸣声。大学的最后一个暑假无奈只能在学校度过，为了防止再次:-)浪费了这大好的时光，必须要来一波暑期计划了。。。   首先是最重要的内容:提高英语水平。好吧我承认这个计划已经存在好多年了…..但仍然远远不够，随着需要读越来越多的英文论文，英语水平已经成为致命的短板。迫在眉睫的任务。   补充机器学习、深度学">
 
 
 
@@ -145,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://muyus.cc/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/"/>
+  <link rel="canonical" href="http://muyus.cc/2017/07/07/啊啊/"/>
 
 
 
 
 
-  <title>《DeepWalk：Online Learning of Social Representations》笔记 | 暮雨今夕</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>暑假计划 | 暮雨今夕</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -314,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://muyus.cc/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/">
+    <link itemprop="mainEntityOfPage" href="http://muyus.cc/2017/07/07/啊啊/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="muyu">
@@ -331,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">《DeepWalk：Online Learning of Social Representations》笔记</h2>
+          <h2 class="post-title" itemprop="name headline">暑假计划</h2>
         
 
         <div class="post-meta">
@@ -343,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T22:30:00+08:00">
-                2017-11-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T22:30:00+08:00">
+                2017-07-07
               </time>
             
 
@@ -366,19 +354,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/Network-Embedding/" itemprop="url" rel="index">
-                    <span itemprop="name">Network Embedding</span>
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
                   </a>
                 </span>
 
@@ -394,7 +371,7 @@
 
           
           
-             <span id="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/" class="leancloud_visitors" data-flag-title="《DeepWalk：Online Learning of Social Representations》笔记">
+             <span id="/2017/07/07/啊啊/" class="leancloud_visitors" data-flag-title="暑假计划">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,57 +399,13 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>紧张、忙碌又迷茫的研究生生活已经过去两个多月了，这两个多月干了什么已经记不清楚了，看了几篇论文？做了个很low的前端?然后草草的复习了两门功课?不管怎样，现在终于有一点点闲暇时间，同时为了兑现考试前和柯同学的约定，就把最近看的这篇Embeding入门级的论文记录一下。  </p>
+        <blockquote>
+<p>经过了毕业季伤感的别离，生活又回归了平静；不管你怎么变，永远不变的是早上那缕缕晨光和阵阵的鸟鸣声。大学的最后一个暑假无奈只能在学校度过，为了防止<strong>再次</strong>:-)浪费了这大好的时光，必须要来一波暑期计划了。。。</p>
 </blockquote>
-<h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>这篇论文涉及到word2vec相关的知识，所以需要先了解一下神经语言模型相关的内容。详细的内容可以见博客：<a href="http://shomy.top/2017/07/28/word2vec-all/" target="_blank" rel="external">http://shomy.top/2017/07/28/word2vec-all/</a>，这篇博客是一位学长写的，很不错。<br>原文链接：  <a href="http://www.perozzi.net/publications/14_kdd_deepwalk.pdf" target="_blank" rel="external">http://www.perozzi.net/publications/14_kdd_deepwalk.pdf</a><br>github代码链接：<a href="https://github.com/phanein/deepwalk" target="_blank" rel="external">https://github.com/phanein/deepwalk</a><br>作者的slide：<a href="http://www.perozzi.net/publications/14_kdd_deepwalk-slides.pdf" target="_blank" rel="external">http://www.perozzi.net/publications/14_kdd_deepwalk-slides.pdf</a>  </p>
-<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>这篇文章的算法很简单，但是这篇文章提出了一种新的处理方法或者说是分支：把复杂网络中的节点表示成为潜在的向量（所谓潜在的向量就是无法直接观测得到的向量，具体的解释见<a href="https://en.wikipedia.org/wiki/Latent_variable" target="_blank" rel="external">https://en.wikipedia.org/wiki/Latent_variable</a>,这种欧式空间的向量可以非常方便的用于机器学习的算法。通俗的讲我认为本文提出deepwalk的动机如下：  </p>
-<ol>
-<li>常规使用邻接矩阵只能表示网络的一种节点和边的信息，无法很好的刻画网络中节点或边的一些特征，而转化为连续向量空间后却可以刻画这种特征  </li>
-<li>邻接矩阵是很稀疏的（O(n^2)级别的差距可以认为是稀疏的），维度很高。所以使用邻接矩阵和矩阵分解那一套很难实现Large-scale，而通过所谓的network embedding 可以把网络压缩成一个低维的稠密的向量，因此可以实现Large-scale，具体见下图。  </li>
-<li>想要使用机器学习的算法，直接用邻接矩阵自然是不可行的，所以不得不寻找一种方法来得到一种潜在的表示。这一点原文说的特别优雅：“Machine learning applications in net  ，works (such as network classification [16, 37], content rec- ommendation [12], anomaly detection [6], and missing link prediction [23]) must be able to deal with this sparsity in order to survive.”  </li>
-</ol>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_0.png" alt="Network embedding">  </p>
-<p>所以本文：提出了一种从语言模型中发展过来的方法来学习邻接矩阵的潜在表示。<br>可视化样例：  </p>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_1.png" alt="Karate Graph">  </p>
-<h2 id="PROBLEM-DEFINITION"><a href="#PROBLEM-DEFINITION" class="headerlink" title="PROBLEM DEFINITION"></a>PROBLEM DEFINITION</h2><p>输入：G = (V,E),其中V为点集，E为边集。<br>输出：对于\(G_L=(V,E,X,Y)\)（其中X是特征，Y标签集合），一般的机器学习问题，需要学习一个从X映射到Y的hypothesis。而本文的任务就是学习得到X的表示。  </p>
-<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><h3 id="语言模型与图数据的联系"><a href="#语言模型与图数据的联系" class="headerlink" title="语言模型与图数据的联系"></a>语言模型与图数据的联系</h3><p>a)表示复杂网络（rfree-scale）的度分布，<br>b)表示wiki中单词的分布。</p>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_2.png" alt="Connection: Power laws">  </p>
-<p>由上图可知两者都服从幂律分布，所以作者提出一个cool idea：随机游走产生的序列等价于语言中的句子。虽然这种联系很牵强，因为在自然语言中句子是有顺序和语义存在的，而随机游走彻底消除了这种顺序的关系。  </p>
-<h3 id="deepwalk"><a href="#deepwalk" class="headerlink" title="deepwalk"></a>deepwalk</h3><p>deepwalk算法分为两个部分：randomwalk生成器和word2vec的skipgram模型。</p>
 <ul>
-<li>这里使用的随机游走就是最简单的模型，设<br>\(w_{v_i}\)表示根节点为点\({v_i}\)的一条随机游走，每一步从它的邻居中随机选择一个直到达到了最大长度t（可能会restart）。这样就产生很多条随机游走序列来表示语料库。</li>
-</ul>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_3.png" alt="Alogrithm 1">  </p>
-<ul>
-<li>得到随机游走序列后当做句子直接丢给word2vec训练就可以了，本文使用的模型是skipgram+Hierarchical Softmax，论文中的公式就不在此列举了，因为和word2vec的一毛一样，如果word2vec懂得话就非常简单了。  </li>
-</ul>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_4.png" alt="Alogrithm 2"> </p>
-<p>算法的整体流程如下图所示：</p>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_5.png" alt="DeepWalk"> </p>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>从随机游走生成器生成序列之后，就都是word2vec那一套了，word2vec可以实现online，可以使用ASGD，同样也很容易理解可以实现并行执行。  </p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>实验部分这篇论文也非常简单，主要做了两部分：多标签分类和参数敏感性分析。  </p>
-<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><blockquote>
-<p>An overview of the graphs we consider in our experiments<br>is given in Figure 1.  </p>
-<ul>
-<li><strong>BlogCatalog</strong> [39] is a network of social relationships provided by blogger authors. The labels represent the topic categories provided by the authors.</li>
-<li><strong>Flickr</strong> [39] is a network of the contacts between users of the photo sharing website. The labels represent the<br>interest groups of the users such as ‘black and white photos’.  </li>
-<li><strong>YouTube</strong> [40] is a social network between users of the popular video sharing website. The labels here<br>represent groups of viewers that enjoy common video genres  </li>
-</ul>
-</blockquote>
-<h2 id="多标签分类"><a href="#多标签分类" class="headerlink" title="多标签分类"></a>多标签分类</h2><p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_6.png" alt="result 1">   </p>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_7.png" alt="result 1">   </p>
-<p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_8.png" alt="result 1">   </p>
-<h2 id="参数敏感性分析"><a href="#参数敏感性分析" class="headerlink" title="参数敏感性分析"></a>参数敏感性分析</h2><h3 id="Effect-of-Dimensionality："><a href="#Effect-of-Dimensionality：" class="headerlink" title="Effect of Dimensionality："></a>Effect of Dimensionality：</h3><p><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_9.png" alt="Effect of Dimensionality">    </p>
-<p>从这组参数敏感性分析可以发现latent represent的维数d=128时效果最好，维数过小时欠拟合，维数过高时会过拟合（对节点表示有影响的就那么几维，维度过高会引入很多无关的表达，反而会影响到分类的效果）</p>
-<p>###　Effect of sampling frequency<br><img src="/2017/11/18/《DeepWalk_Online Learning of Social Representations》笔记/deepwalk_10.png" alt="Effect of Dimensionality">    </p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章中提到了很多deepwalk的优势，但实际上都是照搬word2vec的，比如说online Learning、并行化、ASGD等等。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>综上所述，从这篇论文中，我学到了两个非常重要的内容：一个是network embedding的思想，可以说是这篇文章开创性的工作。二是所谓的写作的技巧，虽然算法和思想很朴素，但是作者对问题的理解很深刻，所以论文写出来就显得非常优美、高大上，涉及到很多其他方面的知识。完美的把简单的算法包装起来，真的服气。<br>本来打算这几天把DeepWalk实现一下，但是受到清华大学涂存超他们写的<a href="https://github.com/thunlp/OpenNE的启发" target="_blank" rel="external">OpenNE</a>,决定看完Node2vec，然后直接写Node2vec，最后用Node2vec就可以很容易实现Deepwalk了。  </p>
-<h2 id="遗留的问题"><a href="#遗留的问题" class="headerlink" title="遗留的问题"></a>遗留的问题</h2><ul>
-<li>efficient discrete algorithms?  </li>
-<li>cascading errors, which can occur in iterative methods ?    </li>
-<li>输入输出敏感  </li>
-<li>shuffle的作用，加快收敛？  </li>
+<li>首先是最重要的内容:提高英语水平。好吧我承认这个计划已经存在好多年了…..但仍然远远不够，随着需要读越来越多的英文论文，英语水平已经成为致命的短板。迫在眉睫的任务。  </li>
+<li>补充机器学习、深度学习、数学相关的基础知识。以后想着要搞这部分的内容，现在需要尽快补一补，争取明年能够发论文。  </li>
+<li>继续刷ACM，争取开学能够刷到500道（做梦咧：-？）<br>恩现在就这些打算了，再多的内容感觉也完不成了，毕竟也就40多天，只要没有荒废就行了。。。</li>
 </ul>
 
       
@@ -503,9 +436,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Deep-learning/" rel="tag"># Deep learning</a>
+            <a href="/tags/随笔/" rel="tag"># 随笔</a>
           
-            <a href="/tags/Network-Embedding/" rel="tag"># Network Embedding</a>
+            <a href="/tags/看心情/" rel="tag"># 看心情</a>
           
         </div>
       
@@ -528,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/04/SDNE笔记/" rel="prev" title="Structural Deep Network Embedding 笔记">
-                Structural Deep Network Embedding 笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/18/DeepWalk笔记/" rel="prev" title="DeepWalk:Online Learning of Social Representations 笔记">
+                DeepWalk:Online Learning of Social Representations 笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,17 +510,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://tvax2.sinaimg.cn/crop.37.10.574.574.180/c42979e1ly8fe1tb4xa78j20ia0lygs9.jpg"
@@ -602,7 +526,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -700,22 +624,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景知识"><span class="nav-number">2.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">3.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PROBLEM-DEFINITION"><span class="nav-number">4.</span> <span class="nav-text">PROBLEM DEFINITION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">5.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言模型与图数据的联系"><span class="nav-number">5.1.</span> <span class="nav-text">语言模型与图数据的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deepwalk"><span class="nav-number">5.2.</span> <span class="nav-text">deepwalk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">5.3.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集"><span class="nav-number">6.1.</span> <span class="nav-text">数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多标签分类"><span class="nav-number">7.</span> <span class="nav-text">多标签分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数敏感性分析"><span class="nav-number">8.</span> <span class="nav-text">参数敏感性分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Effect-of-Dimensionality："><span class="nav-number">8.1.</span> <span class="nav-text">Effect of Dimensionality：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗留的问题"><span class="nav-number">11.</span> <span class="nav-text">遗留的问题</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
