@@ -102,7 +102,7 @@
 <meta property="og:url" content="http://muyus.cc/2018/11/30/http代理服务搭建及应用/index.html">
 <meta property="og:site_name" content="暮雨今夕">
 <meta property="og:description" content="前言 最近想重拾博客的更新，但是又不知道从何下手。正巧碰到一个问题就是：实验室的服务器没有联网，每次安装python包都需要下载好后传上去的话又比较麻烦而且有些包的依赖也需要装，这样会非常麻烦，所以考虑在内网的另一台机器上搭一个简单的http代理服务，然后直接走代理会比较方便一点。所以写一篇短的博客记录一下。  代理服务选择主要考虑的有两个，一个是squid，一个是tinyproxy。squid代">
-<meta property="og:updated_time" content="2018-12-07T06:22:22.036Z">
+<meta property="og:updated_time" content="2018-12-07T06:24:50.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http代理服务搭建及应用">
 <meta name="twitter:description" content="前言 最近想重拾博客的更新，但是又不知道从何下手。正巧碰到一个问题就是：实验室的服务器没有联网，每次安装python包都需要下载好后传上去的话又比较麻烦而且有些包的依赖也需要装，这样会非常麻烦，所以考虑在内网的另一台机器上搭一个简单的http代理服务，然后直接走代理会比较方便一点。所以写一篇短的博客记录一下。  代理服务选择主要考虑的有两个，一个是squid，一个是tinyproxy。squid代">
@@ -410,15 +410,20 @@
 <li><p>配置  </p>
 <ul>
 <li>配置文件的目录在<code>/etc/tinyproxy.conf</code>。</li>
-<li><p>修改配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">   <span class="built_in"> Port </span>8888 # 修改代理端口</div><div class="line">    Allow 127.0.0.1 # 修改允许ip，要想任何ip通过，注释这句</div><div class="line">    ``` </div><div class="line"></div><div class="line">- 启动</div></pre></td></tr></table></figure>
-<p>service tinyproxy start</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 测试 ##</div><div class="line">- curl: 在内网的机器中输入：</div></pre></td></tr></table></figure>
-<p>export http_proxy=<a href="http://ip:port" target="_blank" rel="external">http://ip:port</a><br>curl www.baidu.com</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">- </span>pip使用代理：在内网的机器中输入：</div></pre></td></tr></table></figure>
-<p>export https_proxy=<a href="http://ip:port" target="_blank" rel="external">http://ip:port</a><br>pip install numpy<br>```</p>
+<li>修改配置：<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Port <span class="number">8888</span> # 修改代理端口</div><div class="line">Allow <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> # 修改允许ip，要想任何ip通过，注释这句</div></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+<li><p>启动</p>
+  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service tinyproxy <span class="literal">start</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li><p>curl: 在内网的机器中输入：</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="builtin-name">export</span> <span class="attribute">http_proxy</span>=http://ip:port</div><div class="line">curl www.baidu.com</div></pre></td></tr></table></figure>
+</li>
+<li><p>pip使用代理：在内网的机器中输入：</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="builtin-name">export</span> <span class="attribute">https_proxy</span>=http://ip:port</div><div class="line">pip install numpy</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -655,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理服务选择"><span class="nav-number">2.</span> <span class="nav-text">代理服务选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tinyproxy-搭建"><span class="nav-number">3.</span> <span class="nav-text">tinyproxy 搭建</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理服务选择"><span class="nav-number">2.</span> <span class="nav-text">代理服务选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tinyproxy-搭建"><span class="nav-number">3.</span> <span class="nav-text">tinyproxy 搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li></ol></div>
             
 
           </div>
