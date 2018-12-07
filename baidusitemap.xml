@@ -5,44 +5,22 @@
     
   <url>
     <loc>http://muyus.cc/2018/11/30/http%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%BA%94%E7%94%A8/</loc>
-    <lastmod>2018-11-30T04:25:57.445Z</lastmod>
+    <lastmod>2018-12-07T05:50:58.073Z</lastmod>
     <data>
         <display>
-        <title>vps安装配置</title>
+        <title>http代理服务搭建及应用</title>
         <pubTime>2018-11-30T03:00:00.000Z</pubTime>
         
+        <tag>python</tag>
+         
         <tag>vps</tag>
          
         <tag>linux</tag>
-         
-        <tag>python</tag>
          
          
            
              
               <breadCrumb title="折腾" url="http://muyus.cc/categories/%E6%8A%98%E8%85%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://muyus.cc/2017/07/07/%E5%95%8A%E5%95%8A/</loc>
-    <lastmod>2018-11-30T02:56:03.719Z</lastmod>
-    <data>
-        <display>
-        <title>暑假计划</title>
-        <pubTime>2017-07-07T14:30:00.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-        <tag>看心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://muyus.cc/categories/%E9%9A%8F%E7%AC%94/"/>
           
         </display>
     </data>
@@ -211,26 +189,6 @@
 
     
   <url>
-    <loc>http://muyus.cc/2017/03/27/markdown%E8%AF%AD%E6%B3%95/</loc>
-    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>markdown语法</title>
-        <pubTime>2017-03-27T09:56:15.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-         
-           
-             
-              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://muyus.cc/2017/03/25/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEcentos/</loc>
     <lastmod>2017-03-30T09:17:36.000Z</lastmod>
     <data>
@@ -253,6 +211,32 @@
 
     
   <url>
+    <loc>http://muyus.cc/2017/03/29/python%E5%90%84%E7%A7%8D%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2017-03-30T09:17:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>python各种库的安装配置</title>
+        <pubTime>2017-03-29T09:41:53.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Machine Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://muyus.cc/categories/Machine-Learning/"/>
+          
+             
+              <breadCrumb title="Python" url="http://muyus.cc/categories/Machine-Learning/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://muyus.cc/2017/03/28/github%20use/</loc>
     <lastmod>2017-03-30T09:17:36.000Z</lastmod>
     <data>
@@ -273,26 +257,20 @@
 
     
     
-    
   <url>
-    <loc>http://muyus.cc/2017/03/29/python%E5%90%84%E7%A7%8D%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <loc>http://muyus.cc/2017/03/27/markdown%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2017-03-30T09:17:36.000Z</lastmod>
     <data>
         <display>
-        <title>python各种库的安装配置</title>
-        <pubTime>2017-03-29T09:41:53.000Z</pubTime>
+        <title>markdown语法</title>
+        <pubTime>2017-03-27T09:56:15.000Z</pubTime>
         
-        <tag>python</tag>
-         
-        <tag>Machine Learning</tag>
+        <tag>markdown</tag>
          
          
            
              
-              <breadCrumb title="Machine Learning" url="http://muyus.cc/categories/Machine-Learning/"/>
-          
-             
-              <breadCrumb title="Python" url="http://muyus.cc/categories/Machine-Learning/Python/"/>
+              <breadCrumb title="效率" url="http://muyus.cc/categories/%E6%95%88%E7%8E%87/"/>
           
         </display>
     </data>
