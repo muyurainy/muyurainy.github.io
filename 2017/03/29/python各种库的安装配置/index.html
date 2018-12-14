@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="安装networkx安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:123pip install numpypip install matplotlibpip install networkx 安装bs4、lxml安装bs4   pip install 安装lxml   pip install wheel pip install ....whe">
+<meta name="description" content="安装networkx安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:123pip install numpypip install matplotlibpip install networkx 安装bs4、lxml安装bs41pip install 安装lxml12pip install wheelpip install ....wheel 安">
 <meta name="keywords" content="python,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python各种库的安装配置">
 <meta property="og:url" content="http://muyus.cc/2017/03/29/python各种库的安装配置/index.html">
 <meta property="og:site_name" content="暮雨今夕">
-<meta property="og:description" content="安装networkx安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:123pip install numpypip install matplotlibpip install networkx 安装bs4、lxml安装bs4   pip install 安装lxml   pip install wheel pip install ....whe">
-<meta property="og:updated_time" content="2017-03-30T09:17:36.000Z">
+<meta property="og:description" content="安装networkx安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:123pip install numpypip install matplotlibpip install networkx 安装bs4、lxml安装bs41pip install 安装lxml12pip install wheelpip install ....wheel 安">
+<meta property="og:updated_time" content="2018-12-14T06:37:39.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python各种库的安装配置">
-<meta name="twitter:description" content="安装networkx安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:123pip install numpypip install matplotlibpip install networkx 安装bs4、lxml安装bs4   pip install 安装lxml   pip install wheel pip install ....whe">
+<meta name="twitter:description" content="安装networkx安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:123pip install numpypip install matplotlibpip install networkx 安装bs4、lxml安装bs41pip install 安装lxml12pip install wheelpip install ....wheel 安">
 
 
 
@@ -411,12 +411,25 @@
 
       
         <h3 id="安装networkx"><a href="#安装networkx" class="headerlink" title="安装networkx"></a>安装networkx</h3><p>安装networkx之前要安装画图工具matplotlib，以及矩阵运算工具numpy,于是我们执行:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span> numpy</div><div class="line">pip <span class="keyword">install</span> matplotlib</div><div class="line">pip <span class="keyword">install</span> networkx</div></pre></td></tr></table></figure></p>
-<h3 id="安装bs4、lxml"><a href="#安装bs4、lxml" class="headerlink" title="安装bs4、lxml"></a>安装bs4、lxml</h3><p>安装bs4  </p>
-<pre><code>pip install
-</code></pre><p>安装lxml  </p>
-<pre><code>pip install wheel
-pip install ....wheel
-</code></pre>
+<h3 id="安装bs4、lxml"><a href="#安装bs4、lxml" class="headerlink" title="安装bs4、lxml"></a>安装bs4、lxml</h3><p>安装bs4<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span></div></pre></td></tr></table></figure></p>
+<p>安装lxml<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install wheel</div><div class="line">pip install ....wheel</div></pre></td></tr></table></figure></p>
+<h3 id="安装配置jupyter"><a href="#安装配置jupyter" class="headerlink" title="安装配置jupyter"></a>安装配置jupyter</h3><p>安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span> jupyterlab</div></pre></td></tr></table></figure></p>
+<p>配置:</p>
+<ul>
+<li><p>执行命令生成配置文件：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter lab --generate-config</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成秘钥，在<code>ipython</code>中执行：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</div><div class="line">passwd()</div></pre></td></tr></table></figure>
+<p>  输入两次密码并复制得到的hash码。</p>
+</li>
+<li><p>在配置文件里添加：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">c.NotebookApp.ip=<span class="string">'0.0.0.0'</span></div><div class="line">c.NotebookApp.open_browser=<span class="keyword">False</span> <span class="comment"># 关闭自动打开浏览器</span></div><div class="line">c.NotebookApp.port=<span class="number">8888</span> <span class="comment"># 指定端口</span></div><div class="line">c.NotebookApp.password =<span class="string">u'sha1:addsadsa'</span> <span class="comment"># 复制前一步生成的hash密钥</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用nohup提交到后台运行：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup jupyter lab &gt;&gt; nohup.out <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</div></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
 
@@ -460,8 +473,8 @@ pip install ....wheel
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/28/github use/" rel="next" title="github使用">
-                <i class="fa fa-chevron-left"></i> github使用
+              <a href="/2017/03/29/搭建hexo博客/" rel="next" title="搭建hexo博客">
+                <i class="fa fa-chevron-left"></i> 搭建hexo博客
               </a>
             
           </div>
@@ -470,8 +483,8 @@ pip install ....wheel
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/29/搭建hexo博客/" rel="prev" title="搭建hexo博客">
-                搭建hexo博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/31/微博情感分析/" rel="prev" title="微博情感分析">
+                微博情感分析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -652,7 +665,7 @@ pip install ....wheel
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装networkx"><span class="nav-number">1.</span> <span class="nav-text">安装networkx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装bs4、lxml"><span class="nav-number">2.</span> <span class="nav-text">安装bs4、lxml</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装networkx"><span class="nav-number">1.</span> <span class="nav-text">安装networkx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装bs4、lxml"><span class="nav-number">2.</span> <span class="nav-text">安装bs4、lxml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置jupyter"><span class="nav-number">3.</span> <span class="nav-text">安装配置jupyter</span></a></li></ol></div>
             
 
           </div>
