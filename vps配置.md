@@ -36,6 +36,27 @@ toc: true
     ssserver -d stop
 ### Google BBR 非openvz加速（非必须） ###
     wget --no-check-certificate https://github.com/52fancy/GooGle-BBR/raw/master/BBR.sh && sh BBR.sh
+### 开机自启
+使用Systemd来实现shadowsocks开机自启：
+```python
+sudo vim /etc/systemd/system/shadowsocks.service
+```
+添加以下内容：
+```python
+[Unit]
+Description=Shadowsocks Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=sslocal -c /etc/shadowsocks.json
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 ## 安装配置 Softether VPN ##
 ### 服务器端配置 ##
 执行：  
