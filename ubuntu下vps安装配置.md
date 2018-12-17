@@ -12,52 +12,55 @@ toc: true
 购买链接：[https://clients.hostmybytes.com/cart.php?a=confproduct&i=0](https://clients.hostmybytes.com/cart.php?a=confproduct&i=0)，现在只需要年付7刀。虽然官网说有亚洲线路优化，但是并没有感受到太大的区别，而且刚买第一天貌似机房那边就有一点问题，所以购买要慎重。
 
 ## 修改ssh端口并禁止root登录 ##
-为了安全考虑，修改ssh默认的22端口，将```
-### 1.安装pip ###
-**ubuntu**:  
-    sudo apt-get install python-pip  
-**Centos**  
-    yum install python-setuptools && easy_install pip  
-之后运行  
-    pip install shadowsocks  
-### 2.配置Shadowsocks ###
-安装完成后，在/etc/下新建一个叫shadowsocks.json的配置文件，内容如下：
+为了安全考虑，修改ssh默认的22端口，修改`/etc/ssh/ssh_config`:
+```python
+Port 22
 ```
-{
-	"server" : "::",
-	"server_port" : 8388,
-	"local_address" : "127.0.0.1",
-	"local_port" : 1080,
-	"password" : "PASSWORD",
-	"timeout" : 300,
-	"method" : "rc4-md5"
-}
+禁止root登录，修改`/etc/ssh/sshd_config`：
+```python
+PermitRootLogin no
 ```
-### 3.启动运行 ###
-执行以下开启：  
 
-    ssserver -c /etc/shadowsocks.json --fast-open -d start  
-关闭：  
+## 更新ubuntu软件源
+复制以下内容到`/etc/apt/sources.list`:
+```python
+#deb cdrom:[Ubuntu 16.04.1 LTS _Xenial Xerus_ - Release amd64 (20160719)]/ xenial main restricted
 
-    ssserver -d stop
-### Google BBR 非openvz加速（非必须） ###
-    wget --no-check-certificate https://github.com/52fancy/GooGle-BBR/raw/master/BBR.sh && sh BBR.sh
-## 安装配置 Softether VPN ##
-### 服务器端配置 ##
-执行：  
-```
-wget http://www.softether-download.com/files/softether/v4.18-9570-rtm-2015.07.26-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.18-9570-rtm-2015.07.26-linux-x64-64bit.tar.gz
-tar -xzvf softether-vpnserver-v4.18-9570-rtm-2015.07.26-linux-x64-64bit.tar.gz
-cd vpnserver/
-make
-```
-按提示输入三个1后：  
-    ./vpnserver start
-服务器端配置完毕
-### 客户端 ###
-[客户端点击下载](http://www.softether-download.com/files/softether/v4.18-9570-rtm-2015.07.26-tree/Windows/Admin_Tools/VPN_Server_Manager_and_Command-line_Utility_Package/softether-vpn_admin_tools-v4.18-9570-rtm-2015.07.26-win32.zip)
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
+# newer versions of the distribution.
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted
 
-## ubuntu 创建用户
+## Major bug fix updates produced after the final release of the
+## distribution.
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial-updates main restricted
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ xenial-updates main restricted
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## universe WILL NOT receive any review or updates from the Ubuntu security
+## team.
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial universe
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ xenial universe
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial-updates universe
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ xenial-updates universeS
 ```
-adduser
+运行：
+```python
+sudo apt-get update
 ```
+## 配置vim和tmux
+- vim：上传自己的vim配置文件
+- tmux：安装tmux：
+    ```python
+    sudo apt-get install tmux
+    ```
+    上传自己的配置文件
+
+## 代理服务器安装配置
+- shadowsocks：见{% post_link vps安装配置 点击这里查看这篇文章 %}
+- softetherVPN：见
+
+## hexo安装配置
+见
